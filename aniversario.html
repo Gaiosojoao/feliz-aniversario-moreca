@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Feliz Aniversário Mô ❤️</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            min-height: 100vh;
+            background: linear-gradient(135deg, #ff6b9d, #ff8fab, #ffb3c6);
+            font-family: 'Georgia', serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 40px 20px;
+            overflow-x: hidden;
+        }
+
+        h1 {
+            font-size: clamp(2rem, 6vw, 4rem);
+            color: #fff;
+            text-shadow: 2px 2px 8px rgba(0,0,0,0.2);
+            text-align: center;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.04); }
+        }
+
+        .mensagem {
+            max-width: 600px;
+            background: rgba(255,255,255,0.25);
+            backdrop-filter: blur(8px);
+            border-radius: 20px;
+            padding: 30px;
+            margin: 30px 0;
+            color: #fff;
+            font-size: 1.15rem;
+            line-height: 1.8;
+            text-align: center;
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.15);
+        }
+
+        /* Galeria */
+        .galeria {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 16px;
+            max-width: 900px;
+            width: 100%;
+            margin-bottom: 30px;
+        }
+
+        .galeria img {
+            width: 100%;
+            aspect-ratio: 1;
+            object-fit: cover;
+            border-radius: 16px;
+            border: 4px solid rgba(255,255,255,0.6);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+            transition: transform 0.3s;
+        }
+
+        .galeria img:hover { transform: scale(1.05); }
+
+        .coracao {
+            font-size: 2rem;
+            animation: float 3s ease-in-out infinite;
+            display: inline-block;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        /* Corações flutuantes */
+        .hearts-bg span {
+            position: fixed;
+            font-size: 1.5rem;
+            animation: rise linear infinite;
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        @keyframes rise {
+            0%   { bottom: -10%; opacity: 1; }
+            100% { bottom: 110%; opacity: 0; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="hearts-bg" id="hearts"></div>
+
+<span class="coracao">❤️</span>
+<h1>Feliz Aniversário!</h1>
+<span class="coracao">🎂</span>
+
+<div class="mensagem">
+    <!-- ✏️ Edite a mensagem aqui -->
+    Hoje é um dia muito especial, assim como você é especial para mim.<br><br>
+    Que esse novo ano da sua vida seja repleto de alegria, saúde e muito amor.<br><br>
+    Te amo muito! ❤️
+</div>
+
+<div class="galeria">
+    <!-- ✏️ Adicione suas fotos aqui -->
+    <img src="fotos/foto1.jpg" alt="foto 1">
+    <img src="fotos/foto2.jpg" alt="foto 2">
+    <img src="fotos/foto3.jpg" alt="foto 3">
+</div>
+
+<script>
+    const bg = document.getElementById('hearts');
+    for (let i = 0; i < 15; i++) {
+        const s = document.createElement('span');
+        s.textContent = ['❤️','💕','💖','🌸'][Math.floor(Math.random()*4)];
+        s.style.left = Math.random() * 100 + 'vw';
+        s.style.animationDuration = (4 + Math.random() * 6) + 's';
+        s.style.animationDelay = (Math.random() * 8) + 's';
+        bg.appendChild(s);
+    }
+</script>
+</body>
+</html>
